@@ -80,7 +80,8 @@ public class ConstantRead {
             do {
                 Thread.sleep(1000);
                 String data = (String) msg.receiveMessage(reader.getInputStream(), elaraTransportListener);
-                System.out.println(data);
+                if (!data.equals(""))
+                    System.out.println(data);
                 count ++;
             } while (count < 10);
             
