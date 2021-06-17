@@ -83,7 +83,7 @@ public class ConstantRead {
                 if (!data.equals(""))
                     System.out.println(data);
                 count ++;
-            } while (count < 10);
+            } while (count < 400);
             
             // Stop reading
             String Stopread = ejsonp.formJSONCommand(ECTConstants.STOP_RZ);
