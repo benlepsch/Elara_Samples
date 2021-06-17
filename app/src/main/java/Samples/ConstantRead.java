@@ -82,7 +82,7 @@ public class ConstantRead {
                 String data = (String) msg.receiveMessage(reader.getInputStream(), elaraTransportListener);
                 System.out.println(data);
                 count ++;
-            } while (count < 5);
+            } while (count < 10);
             
             // Stop reading
             String Stopread = ejsonp.formJSONCommand(ECTConstants.STOP_RZ);

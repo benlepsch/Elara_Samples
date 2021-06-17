@@ -49,5 +49,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'Samples.BulkTagRead'
+    mainClass = 'Samples.ConstantRead'
 }
