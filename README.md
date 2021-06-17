@@ -4,7 +4,7 @@ Hi
 
 This is the same sample code that came with the Elara RFID reader, restructured to work with gradle instead of netbeans so that I can compile and run it from a linux terminal.
 
-To change the file you're running: edit the `application` block in the `app/build.gradle` file to contain `mainClass = 'Samples.yourProgramHere`.
+To change the file you're running: edit the `application` block in the `app/build.gradle` file to contain `mainClass = 'Samples.yourProgramHere'`.
 
 To compile and run the code: type `./gradlew run`
 
