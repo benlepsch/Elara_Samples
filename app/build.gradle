@@ -5,7 +5,7 @@ plugins {
 
 repositories {
     flatDir {
-        dirs '/home/pi/Elara_Samples/libs', '/usr/share/java'
+    	dirs '/home/pi/Elara_Samples/libs', '/usr/share/java/'
     }
 
     mavenCentral()
