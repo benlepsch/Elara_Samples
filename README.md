@@ -8,7 +8,7 @@ Smaller version -- most of the source files for this to work were huge and unnec
 
 ## Installation
 
-To download the code, use the command `git clone https://github.com/benlepsch/elara_samples`. This downloads the windows/netbeans version, so then type `cd elara_samples` followed by `git checkout bones` to switch to this branch. Also ensure that you have java installed: This runs on OpenJDK version 11.0.11 (check with the `java -version` command), and isn't tested with any newer versions. (To install java, use the command `apt-get install openjdk-11-jdk`)
+To download the code, use the command `git clone https://github.com/benlepsch/elara_samples`. This downloads the windows/netbeans version, so then type `cd elara_samples` followed by `git checkout -b bones` to switch to this branch. Then type `git pull origin bones` to pull from this branch. Also ensure that you have java installed: This runs on OpenJDK version 11.0.11 (check with the `java -version` command), and isn't tested with any newer versions. (To install java, use the command `apt-get install openjdk-11-jdk`)
 
 ### Required Packages
 
