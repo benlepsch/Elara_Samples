@@ -1,0 +1,89 @@
+#!/bin/bash
+
+tofile="plugins {
+    id 'application'
+}
+
+
+repositories {
+    flatDir {
+        dirs '/home/pi/new_elara_code/libs', '/usr/share/java'
+    }
+
+    mavenCentral()
+
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'com.google.guava:guava:30.1-jre'
+
+    implementation name: 'hid4java-develop-SNAPSHOT'
+    implementation name: 'ltkjava-1.0.0.6'
+    implementation name: 'org.json'
+    implementation name: 'jSerialComm-2.2.0'
+    implementation name: 'mercuryapi_nb'
+    implementation name: 'purejavahidapi'
+
+    implementation name: 'javafx-base-11'
+    implementation name: 'javafx-controls-11'
+    implementation name: 'javafx-fxml-11'
+    implementation name: 'javafx-graphics-11'
+    implementation name: 'javafx-media-11'
+    implementation name: 'javafx-swing-11'
+    implementation name: 'javafx-web-11'
+}
+
+application {
+    mainClass = 'Samples.$1'
+}"
+
+echo -e  "$tofile" > app/build.gradle
+
+bash gradlew run
+
+echo "Stopping Reader"
+
+stopfile="plugins {
+    id 'application'
+}
+
+
+repositories {
+    flatDir {
+        dirs '/home/pi/new_elara_code/libs', '/usr/share/java'
+    }
+
+    mavenCentral()
+
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'com.google.guava:guava:30.1-jre'
+
+    implementation name: 'hid4java-develop-SNAPSHOT'
+    implementation name: 'ltkjava-1.0.0.6'
+    implementation name: 'org.json'
+    implementation name: 'jSerialComm-2.2.0'
+    implementation name: 'mercuryapi_nb'
+    implementation name: 'purejavahidapi'
+
+    implementation name: 'javafx-base-11'
+    implementation name: 'javafx-controls-11'
+    implementation name: 'javafx-fxml-11'
+    implementation name: 'javafx-graphics-11'
+    implementation name: 'javafx-media-11'
+    implementation name: 'javafx-swing-11'
+    implementation name: 'javafx-web-11'
+}
+
+application {
+    mainClass = 'Samples.StopRead'
+}"
+
+echo -e "$stopfile" > app/build.gradle
+
+bash gradlew run
