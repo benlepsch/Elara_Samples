@@ -2,7 +2,7 @@
 
 # important that there is no / on the end of this line
 CODE_DIR="/home/pi/Elara_Samples"
-JAVAFX_DIR="/usr/share/java/"
+JAVAFX_DIR="/home/pi/Elara_Samples/libs/"
 
 if [ $1 = "help" ]
 then
