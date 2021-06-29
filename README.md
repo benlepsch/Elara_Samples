@@ -14,8 +14,20 @@ All of the .jar files needed are already in the git repo's `libs/` folder, minus
 
 ## Running the Program
 
+### Editing/Creating java files
+
 The java files that run the reader are stored in the folder `app/src/main/java/Samples/`. To create a new file, just place it in the folder and edit it with a text editor or IDE.
+
+### Running code on the raspberry pi with custom reader command
+
+If you're running the code through the raspberry pi I set up, all you have to do is make sure you're in the `~/Elara_Samples/` folder and then type `reader <NameOfProgram>`. For example, running the `ConstantRead.java` file would use the command `reader ConstantRead`.
+
+### Running the code on another linux machine with normal gradle compilation
+
+If you're not running the code on the raspberry pi that I put the above command on, here is how you compile java code normally through gradle.
 
 To change the file that gradle runs, edit the `application` block in the file `app/build.gradle` to point `mainClass` to your program.
 
 To compile and run the code: type `./gradlew run`
+
+**It is important to note that running the code the normal gradle way won't stop the reader if you interrupt the code mid read with Control C, so if you want to be sure the reader is stopped and you aren't using my raspberry pi, you have to run the StopRead.java file after stopping the code.** If you let the code finish normally without interruption, however, it will stop the reader.
