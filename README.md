@@ -20,11 +20,19 @@ The java files that run the reader are stored in the folder `app/src/main/java/S
 
 ### Running code on the raspberry pi with custom reader command
 
-If you're running the code through the raspberry pi I set up, all you have to do is make sure you're in the `~/Elara_Samples/` folder and then type `reader <NameOfProgram>`. For example, running the `ConstantRead.java` file would use the command `reader ConstantRead`.
+If you're running the code through the raspberry pi I set up, all you have to do is make sure you're in the `~/Elara_Samples/` folder and then type `reader <NameOfProgram>`. For example, running the `ConstantRead.java` file would use the command `reader ConstantRead`. Running `reader help` explains how to use the command in slightly more detail.
+
+### Setting up reader command on different linux machine
+
+If you're not running the code on the raspberry pi but you're still on linux and you want to set up the reader command, you're in luck because the source code is in this git repo. Just rename the `reader_src` file to `reader` (for a linux terminal, type `mv reader_src reader`).
+
+There are then a couple lines in the `reader` file to edit to ensure the directory paths are correct: Ensure the `dirs` line (line 34) points to the `libs` folder and the javafx file path, and the same for the `dirs` line on line 79. Then, ensure lines 66 and 68 point to the correct `build.gradle` and `gradlew` files, and the same for lines 111 and 113.
+
+Finally, with every file path correct for your machine, move the `reader` file to `/usr/bin/` and restart the terminal for the changes to take effect.
 
 ### Running the code on another linux machine with normal gradle compilation
 
-If you're not running the code on the raspberry pi that I put the above command on, here is how you compile java code normally through gradle.
+If you're not running the code on the raspberry pi and you haven't set up the reader command, here is how you compile java code normally through gradle.
 
 To change the file that gradle runs, edit the `application` block in the file `app/build.gradle` to point `mainClass` to your program.
 
