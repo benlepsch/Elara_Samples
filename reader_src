@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# important that there is no / on the end of this line
+CODE_DIR="/home/pi/Elara_Samples"
+JAVAFX_DIR="/usr/share/java/"
+
 if [ $1 = "help" ]
 then
 	echo "how to use the reader command"
@@ -10,7 +14,7 @@ then
 	echo "   flags are required besides the filename"
 	echo ""
 	echo "potential problems:"
-	echo " - the code that this runs must be in the /home/pi/Elara_Samples"
+	echo " - the code that this runs must be in the $CODE_DIR"
 	echo "   gradle folder, using this command will always compile the "
 	echo "   java code from that parent directory, regardless of where"
 	echo "   this command is run from"
@@ -31,7 +35,7 @@ tofile="plugins {
 
 repositories {
     flatDir {
-        dirs '/home/pi/Elara_Samples/libs', '/usr/share/java'
+        dirs '$CODE_DIR/libs', '$JAVAFX_DIR'
     }
 
     mavenCentral()
@@ -63,9 +67,9 @@ application {
     mainClass = 'Samples.$1'
 }"
 
-echo -e  "$tofile" > /home/pi/Elara_Samples/app/build.gradle
+echo -e  "$tofile" > $CODE_DIR/app/build.gradle
 
-bash /home/pi/Elara_Samples/gradlew run
+bash $CODE_DIR/gradlew run
 
 echo "Stopping Reader"
 
@@ -76,7 +80,7 @@ stopfile="plugins {
 
 repositories {
     flatDir {
-        dirs '/home/pi/Elara_Samples/libs', '/usr/share/java'
+    	dirs '$CODE_DIR/libs', '$JAVAFX_DIR'
     }
 
     mavenCentral()
@@ -108,6 +112,6 @@ application {
     mainClass = 'Samples.StopRead'
 }"
 
-echo -e "$stopfile" > /home/pi/Elara_Samples/app/build.gradle
+echo -e "$stopfile" > $CODE_DIR/app/build.gradle
 
-bash /home/pi/Elara_Samples/gradlew run
+bash $CODE_DIR/gradlew run
