@@ -24,11 +24,14 @@ If you're running the code through the raspberry pi I set up, all you have to do
 
 ### Setting up reader command on different linux machine
 
-If you're not running the code on the raspberry pi but you're still on linux and you want to set up the reader command, you're in luck because the source code is in this git repo. Just rename the `reader_src` file to `reader` (for a linux terminal, type `mv reader_src reader`).
+If you're not running the code on the raspberry pi but you're still on linux and you want to set up the reader command, the first step to do is rename the `reader_src` file to `reader` (on linux, open a terminal and type `mv reader_src reader`).
 
-There are then a couple lines in the `reader` file to edit to ensure the directory paths are correct: Ensure the `dirs` line (line 34) points to the `libs` folder and the javafx file path, and the same for the `dirs` line on line 79. Then, ensure lines 66 and 68 point to the correct `build.gradle` and `gradlew` files, and the same for lines 111 and 113.
+Next, there are two lines in the `reader` file that need to be updated. On line 4, edit the `CODE_DIR` variable to point to the directory this git repo is cloned to. Then, on line 5, edit the `JAVAFX_DIR` variable to point to the folder with your javafx files.
 
-Finally, with every file path correct for your machine, move the `reader` file to `/usr/bin/` and restart the terminal for the changes to take effect.
+Once this is done, the next step is to move the `reader` file to the `/usr/bin/` directory to allow running it directly from the command line. (`mv reader /usr/bin/`) 
+
+Finally, restart your terminal window to make sure the changes have taken effect.
+
 
 ### Running the code on another linux machine with normal gradle compilation
 
