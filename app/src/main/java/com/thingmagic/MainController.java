@@ -996,10 +996,10 @@ public class MainController implements Initializable{
                                 mainTabs.getSelectionModel().select(connectTab);
                                 showWarningErrorMessage("warning","Please connect reader to configure");
                             }
-//                            else if(isAutonomousReadStarted)
-//                            {
-//                                showWarningErrorMessage("warning","Please disconnect and connect back to configure the reader");
-//                            }
+                           // else if(isAutonomousReadStarted)
+                            //{
+                          //      showWarningErrorMessage("warning","Please disconnect and connect back to configure the reader");
+                           // }
                         }
                         else if (newTab.getText().equalsIgnoreCase("utilities")) 
                         {
