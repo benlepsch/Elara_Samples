@@ -2601,13 +2601,13 @@ public class MainController implements Initializable{
                     embeddedEnd.setDisable(false);
                     embeddedEnd.setOpacity(enableOpacity);
                     embeddedEnd.setText("0");
-//                    addChangeList("Embedded read was disabled.\n Now enabled");
+                    //addChangeList("Embedded read was disabled.\n Now enabled");
                     changeListMap.put("embeddedStart", embeddedStart.getText());
                     changeListMap.put("embeddedEnd", embeddedEnd.getText());
                 }
                 else
                 {
-//                    addChangeList("Embedded read was enabled.\n Now disabled");
+                    //addChangeList("Embedded read was enabled.\n Now disabled");
                       disableEmbeddedReadData();
                 }
             }
@@ -2619,11 +2619,11 @@ public class MainController implements Initializable{
             {
                 if(embeddedReadUnique.isSelected())
                 {
-//                   addChangeList("Read unique by data was disabled.\n Now enabled");
+                  // addChangeList("Read unique by data was disabled.\n Now enabled");
                 }
                 else
                 {
-//                   addChangeList("Read unique by data was enabled.\n Now disabled");
+                   //addChangeList("Read unique by data was enabled.\n Now disabled");
                 }
             }
         });
@@ -2633,7 +2633,7 @@ public class MainController implements Initializable{
             @Override
             public void changed(ObservableValue ov, String t, String t1)
             {
-//                addChangeList("Embedded read memory bank was "+t+".\n Now "+ t1);
+                //addChangeList("Embedded read memory bank was "+t+".\n Now "+ t1);
             }
         });
        
@@ -3077,7 +3077,7 @@ public class MainController implements Initializable{
         if (!prevPower.equals(currentPower))
         {
             changeListMap.put("readPower", currentPower);
-//            addChangeList("Read power changed from " + prevPower + " dBm to " + currentPower + " dBm.");
+            //addChangeList("Read power changed from " + prevPower + " dBm to " + currentPower + " dBm.");
         }
         checkReadWritePowerOnUSBProModule();
     }
@@ -3089,7 +3089,7 @@ public class MainController implements Initializable{
         if (!prevPower.equals(currentPower))
         {
             changeListMap.put("writePower", currentPower);
-//            addChangeList("Write power changed from " + prevPower + " dBm to " + currentPower + " dBm.");
+            //addChangeList("Write power changed from " + prevPower + " dBm to " + currentPower + " dBm.");
         }
         checkReadWritePowerOnUSBProModule();
     }
@@ -3346,8 +3346,8 @@ public class MainController implements Initializable{
     {
         
         String previousInfo = "Previous selected protocols :"+ changeListMap.get("protocol");
-//        getSelectedProtocols();
-//        addChangeList(previousInfo +"\nNow selected : "+changeListMap.get("protocol"));
+       // getSelectedProtocols();
+       // addChangeList(previousInfo +"\nNow selected : "+changeListMap.get("protocol"));
     }
 
     public void getSelectedProtocols()
@@ -3388,11 +3388,11 @@ public class MainController implements Initializable{
     {
         String prevAntenna = changeListMap.get("antenna");
         String info = "Previous selected antennas :"+ prevAntenna;
-//        getSelectedAntennas();
-//        if (!changeListMap.get("antenna").equals(prevAntenna))
-//        {
-//            addChangeList(info + "\nNow selected : " + changeListMap.get("antenna"));
-//        }
+        // getSelectedAntennas();
+        // if (!changeListMap.get("antenna").equals(prevAntenna))
+        // {
+        //     addChangeList(info + "\nNow selected : " + changeListMap.get("antenna"));
+        // }
     }
     
     public void  getSelectedAntennas()
@@ -3425,28 +3425,28 @@ public class MainController implements Initializable{
     @FXML
     private void autonomousReadChangeConfiguration(ActionEvent event)
     {
-//        if(autonomousRead.isSelected())
-//        {
-//            addChangeList("Autonomous read was disabled"+"\nNow Enabled");
-//        }
-//        else
-//        {
-//            addChangeList("Autonomous read was Enabled"+"\nNow disabled");
-//        }
+        // if(autonomousRead.isSelected())
+        // {
+        //     addChangeList("Autonomous read was disabled"+"\nNow Enabled");
+        // }
+        // else
+        // {
+        //     addChangeList("Autonomous read was Enabled"+"\nNow disabled");
+        // }
         
     }
     
     @FXML
     private void getEmbeddedStartChangeConfiguration(KeyEvent event)
     {
-//        addChangeList("Embedded Start previous value :"+changeListMap.get("embeddedStart")+" Now: "+embeddedStart.getText());
+        // addChangeList("Embedded Start previous value :"+changeListMap.get("embeddedStart")+" Now: "+embeddedStart.getText());
         changeListMap.put("embeddedStart", embeddedStart.getText());
     }
     
     @FXML
     private void getEmbeddedEndChangeConfiguration(KeyEvent event)
     {
-//        addChangeList("Embedded End previous value: "+changeListMap.get("embeddedEnd")+" Now: "+embeddedEnd.getText());
+        // addChangeList("Embedded End previous value: "+changeListMap.get("embeddedEnd")+" Now: "+embeddedEnd.getText());
         changeListMap.put("embeddedEnd", embeddedEnd.getText());
     }
 

@@ -13,8 +13,10 @@ import com.thingmagic.ElaraTransportListener;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Read {
+public class StopRead {
     private boolean hasElaraListener = false;
+
+    public static SerialPort reader;
 
     // send JSON message to the reader
     public String sendMessage(SerialPort sp, String message, ElaraTransportListener etl) {
@@ -134,6 +136,36 @@ public class Read {
     }
 
     public static void main(String[] args) {
+        try {
+            SerialPort[] ports = SerialPort.getCommPorts();
+            String[] results = new String[ports.length];
 
+            // print data about all available serial ports
+            for (int i = 0; i < ports.length; i++) {
+                results[i] = ports[i].getSystemPortName();
+                System.out.println("Com port: " + results[i]);
+                System.out.println("Descriptive Port Name: " + ports[i].getDescriptivePortName());
+                System.out.println("Device name: " + ports[i].getPortDescription());
+            }
+
+            // connect the reader to the first port
+            reader = SerialPort.getCommPorts()[0];
+            reader.setComPortParameters(115200, 8, 1, 0);
+            if (reader.openPort()) {
+                System.out.println("Port is open");
+            } else {
+                System.out.println("Failed to open port");
+                return;
+            }
+
+            Read msg = new Read();
+            ElaraTransportListener elaraTransportListener = null;
+            ElaraJSONParser ejsonp = new ElaraJSONParser();
+
+            String stop = ejsonp.formJSONCommand(ECTConstants.STOP_RZ);
+            System.out.println("Command: " + stop);
+            String response = (String) msg.sendMessage(reader, stop, elaraTransportListener);
+            System.out.println("Response: " + response); 
+        }
     }
 }
