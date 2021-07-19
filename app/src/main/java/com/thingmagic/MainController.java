@@ -3513,11 +3513,11 @@ public class MainController implements Initializable{
     {
         if (gpiTriggerRead.isSelected())
         {
-//            addChangeList("GPI Trigger read was disabled \nNow: Enabled " );
+            // addChangeList("GPI Trigger read was disabled \nNow: Enabled " );
         }
         else
         {
-//            addChangeList("GPI Trigger read was enabled \nNow: Disabled" );
+            // addChangeList("GPI Trigger read was enabled \nNow: Disabled" );
         }
     }
     
@@ -3528,23 +3528,23 @@ public class MainController implements Initializable{
   
     public void gen2BlfChangeConfiguration()
     {
-//       String prevLinkFreq =   changeListMap.get("linkFreq");
-//       String currentLinkFreq = linkFreqGroup.getSelectedToggle().getUserData().toString();
-//       changeListMap.put("linkFreq", currentLinkFreq);
-//       if(!(prevLinkFreq != null && currentLinkFreq.equals(prevLinkFreq)))
-//       {
-//           addChangeList("Link frequency was "+prevLinkFreq +"\n Now "+ currentLinkFreq);
-//       }
+        // String prevLinkFreq =   changeListMap.get("linkFreq");
+        // String currentLinkFreq = linkFreqGroup.getSelectedToggle().getUserData().toString();
+        // changeListMap.put("linkFreq", currentLinkFreq);
+        // if(!(prevLinkFreq != null && currentLinkFreq.equals(prevLinkFreq)))
+        // {
+        //     addChangeList("Link frequency was "+prevLinkFreq +"\n Now "+ currentLinkFreq);
+        // }
     }
     
     public void gen2TagEncodingChangeConfiguration()
     {
-//        String previousInfo = changeListMap.get("tagEncoding");
-//        getGen2TagEncodingChangeConfiguration();
-//        if(!changeListMap.get("tagEncoding").equals(previousInfo))
-//        {
-//          addChangeList("Tag encoding was "+previousInfo+"\n Now "+changeListMap.get("tagEncoding"));
-//        }
+        // String previousInfo = changeListMap.get("tagEncoding");
+        // getGen2TagEncodingChangeConfiguration();
+        // if(!changeListMap.get("tagEncoding").equals(previousInfo))
+        // {
+        //     addChangeList("Tag encoding was "+previousInfo+"\n Now "+changeListMap.get("tagEncoding"));
+        // }
     }
 
     public void getGen2TagEncodingChangeConfiguration()
@@ -3561,8 +3561,8 @@ public class MainController implements Initializable{
     private void gen2TargetChangeConfiguration()
     {
         String previousInfo = changeListMap.get("target");
-//        getGen2TargetChangeConfiguration();
-//        addChangeList("Gen2 Target was "+previousInfo+"\n Now "+changeListMap.get("target"));
+        // getGen2TargetChangeConfiguration();
+        // addChangeList("Gen2 Target was "+previousInfo+"\n Now "+changeListMap.get("target"));
     }
 
     public void getGen2TargetChangeConfiguration()
@@ -3585,8 +3585,8 @@ public class MainController implements Initializable{
     private void dispalyChangeConfiguration(ActionEvent event)
     {
         String previousInfo = changeListMap.get("displayOption");
-//        getDisplayOptions();
-//        addChangeList("Display options was  "+previousInfo+"\nNow "+changeListMap.get("displayOption"));
+        // getDisplayOptions();
+        // addChangeList("Display options was  "+previousInfo+"\nNow "+changeListMap.get("displayOption"));
     }
     
     public void getDisplayOptions()
@@ -3610,28 +3610,6 @@ public class MainController implements Initializable{
         }
         changeListMap.put("displayOption", displayOptionInfo);
     }
-    
-//    public void addChangeList(String information)
-//    {
-//        if(showChangeList)
-//        {
-//            final Label label = new Label();
-//            label.setText(information);
-//            label.setWrapText(true);
-//            ImageView img = new ImageView(new Image("/images/cancel.png"));
-//            Button button = new Button("", img);
-//            label.setGraphic(button);
-//            changeListContainer.getChildren().add(label);
-//            button.setOnAction(new EventHandler<ActionEvent>()
-//            {
-//                @Override
-//                public void handle(ActionEvent event)
-//                {
-//                    changeListContainer.getChildren().remove(label);
-//                }
-//            });
-//        }
-//    }
     
     @FXML
     private void clearChageList(ActionEvent event)
@@ -3819,16 +3797,6 @@ public class MainController implements Initializable{
         }
     }
 
-//    private void showMessageDialog(String message)
-//    {
-//        alert.setGraphic(new ImageView("/images/info.png"));
-//        alert.setTitle("Information Alert");
-//        alert.setHeaderText(null);
-//        alert.getDialogPane().setStyle("-fx-border-color: transparent; -fx-border-width: 5; -fx-border-radius: 10;");
-//        alert.setContentText(message);
-//        alert.show();
-//    }
-
     @FXML
     private void setElaraConfigurations(ActionEvent event) 
     {
@@ -3836,7 +3804,7 @@ public class MainController implements Initializable{
         cdcText.clear();
         clearInputStream();
         String message = "Please wait while we set configurations.";
-//        showMessageDialog(message);
+        // showMessageDialog(message);
         applyConfigurationsToElara();
     }
     
@@ -3852,13 +3820,13 @@ public class MainController implements Initializable{
             {
                 clearInputStream();
                 String message = "Please wait while we load default configurations.";
-//                showMessageDialog(message);
+                // showMessageDialog(message);
                 // clear the configurations saved in Non-Volatile Memory. which means default configurations are set. 
                 String clearCommand = ejsonp.formJSONCommand(ECTConstants.CLEAR_FIELDS);
                 String responseReceived = sendMessage(sp, clearCommand, elaraTransportListener);
                 // get all the configurations and populate in UI.
                 getCfgFieldsAllAndSetToUI(ejsonp);
-//                alert.hide();
+                // alert.hide();
                 if(ejsonp.isCommandSuccess(responseReceived))
                 {
                     showWarningErrorMessage("success", "Configurations reverted to default settings.");
@@ -3887,7 +3855,7 @@ public class MainController implements Initializable{
             {
                 clearInputStream();
                 String message = "Please wait while we save configurations.";
-//                showMessageDialog(message);
+                // showMessageDialog(message);
                 // set all the configurations
                 applyConfigurationsToElara();
 
@@ -3922,13 +3890,13 @@ public class MainController implements Initializable{
             {
                 clearInputStream();
                 String message = "Please wait while we revert configurations.";
-//                showMessageDialog(message);
+                // showMessageDialog(message);
                 // Read the configurations from Non-Volatile Memory.
                 String readCommand = ejsonp.formJSONCommand(ECTConstants.READ_FIELDS);
                 String responseReceived = sendMessage(sp, readCommand, elaraTransportListener);
                 // get all the configurations and populate in UI.
                 getCfgFieldsAllAndSetToUI(ejsonp);
-//                alert.hide();
+                // alert.hide();
                 if(ejsonp.isCommandSuccess(responseReceived))
                 {
                     showWarningErrorMessage("success", "Configurations are restored successfully.");
@@ -4514,7 +4482,7 @@ public class MainController implements Initializable{
     @FXML
     private void setDateTime(ActionEvent event) throws IOException{
         String setDTMessage = "Please wait while we set PC date/time to reader.";
-//        showMessageDialog(setDTMessage);
+        // showMessageDialog(setDTMessage);
         clearInputStream();
         try {
             String date = new SimpleDateFormat("dd-MM-yyyy").format(Calendar.getInstance().getTime());
@@ -4548,18 +4516,18 @@ public class MainController implements Initializable{
                  boolean settingsSuccessful = getReaderDateTime();
                  if(settingsSuccessful)
                  {
-//                    alert.hide();
+                    // alert.hide();
                     showWarningErrorMessage("success", "Set Date/Time successful");
                  }
                  else
                  {
-//                    alert.hide();
+                    // alert.hide();
                     showWarningErrorMessage("error", "Set Date/Time fail");
                  }
             }
             else
             {
-//                alert.hide();
+                // alert.hide();
                 showWarningErrorMessage("error", "Set Date/Time fail");
             }
         } catch (JSONException ex) {
@@ -4574,7 +4542,7 @@ public class MainController implements Initializable{
         
         clearInputStream();
         String getDTMessage = "Please wait while we get reader date/time.";
-//        showMessageDialog(getDTMessage);
+        // showMessageDialog(getDTMessage);
         String day, month, year;
         Boolean dateTimeSet = false;
         String dateTimeResponse =sendMessage(sp, ejsonp.formJSONCommand(ECTConstants.GET_CFG_FIELDS_DATETIME), elaraTransportListener);
@@ -4607,12 +4575,12 @@ public class MainController implements Initializable{
             minutesTextField.setText(time[1]);
             secondsTextField.setText(time[2]);
             dateTimeSet = true;
-//            alert.hide();
+            // alert.hide();
             showWarningErrorMessage("success", "Get Date/Time successful");
         }
         else
         {
-//            alert.hide();
+            // alert.hide();
             showWarningErrorMessage("error", "Get Date/Time fail");
         }
         return dateTimeSet;
@@ -4806,7 +4774,7 @@ public class MainController implements Initializable{
                         }
                     }
                 }
-//                alert.hide();
+                // alert.hide();
                 if(elaraRS232)
                 {
                     if(buzzerResponse.equalsIgnoreCase("Success") && autonomousResponse.equalsIgnoreCase("Success")
@@ -6468,7 +6436,7 @@ public class MainController implements Initializable{
                            changeListMap.put("embeddedStart", embeddedStart.getText());
                            int addr = Integer.parseInt(strtAddr);
                            embeddedStart.setText(strtAddr);
-//                           addChangeList("Embedded Start previous value :" + changeListMap.get("embeddedStart") + " Now: " + embeddedStart.getText());
+                            // addChangeList("Embedded Start previous value :" + changeListMap.get("embeddedStart") + " Now: " + embeddedStart.getText());
                            changeListMap.put("embeddedStart", embeddedStart.getText());
                        }
                        catch(Exception ex)
@@ -6483,7 +6451,7 @@ public class MainController implements Initializable{
                            changeListMap.put("embeddedEnd", embeddedEnd.getText());
                            int addr = Integer.parseInt(strtAddr);
                            embeddedEnd.setText(endAddr);
-//                           addChangeList("Embedded End previous value: " + changeListMap.get("embeddedEnd") + " Now: " + embeddedEnd.getText());
+                            // addChangeList("Embedded End previous value: " + changeListMap.get("embeddedEnd") + " Now: " + embeddedEnd.getText());
                            changeListMap.put("embeddedEnd", embeddedEnd.getText());
                        }
                        catch(Exception ex)
@@ -7307,7 +7275,7 @@ public class MainController implements Initializable{
         }
     };
     public boolean elaraFirmwareUpgrade(SerialPort sp,String firmwareFile){
-//       checkThread.interrupt();
+        // checkThread.interrupt();
        boolean updateSuccessful = false;
        SerialPort spFWUpgrade = null;
         try {
