@@ -47,6 +47,10 @@ public class StopRead {
                 response = receiveCMDMessage(message, in, etl);
             }
         }
+        catch {
+            System.out.println("oopsie happened in sendmessage");
+        }
+
         return response;
     }
 
@@ -71,6 +75,9 @@ public class StopRead {
             if (hasElaraListener) {
                 etl.message(false, result);
             }
+        }
+        catch {
+            System.out.println("oopsie happened in receivemessage");
         }
 
         return result;
@@ -131,6 +138,9 @@ public class StopRead {
                 }
             }
         }
+        catch {
+            System.out.println("oopsie happened in receiveCMDmessage");
+        }
 
         return result;
     }
@@ -166,6 +176,9 @@ public class StopRead {
             System.out.println("Command: " + stop);
             String response = (String) msg.sendMessage(reader, stop, elaraTransportListener);
             System.out.println("Response: " + response); 
+        }
+        catch {
+            System.out.println("oopsie happened in main");
         }
     }
 }
