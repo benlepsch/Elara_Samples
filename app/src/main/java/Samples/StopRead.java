@@ -47,8 +47,8 @@ public class StopRead {
                 response = receiveCMDMessage(message, in, etl);
             }
         }
-        catch {
-            System.out.println("oopsie happened in sendmessage");
+        catch (Exception e) {
+            System.out.println("exeltpon in sendMessage: " + e);
         }
 
         return response;
@@ -76,8 +76,8 @@ public class StopRead {
                 etl.message(false, result);
             }
         }
-        catch {
-            System.out.println("oopsie happened in receivemessage");
+        catch (Exception e) {
+            System.out.println("exeltpon in sendMessage: " + e);
         }
 
         return result;
@@ -138,8 +138,8 @@ public class StopRead {
                 }
             }
         }
-        catch {
-            System.out.println("oopsie happened in receiveCMDmessage");
+        catch (Exception e) {
+            System.out.println("exeltpon in sendMessage: " + e);
         }
 
         return result;
@@ -177,8 +177,8 @@ public class StopRead {
             String response = (String) msg.sendMessage(reader, stop, elaraTransportListener);
             System.out.println("Response: " + response); 
         }
-        catch {
-            System.out.println("oopsie happened in main");
+        catch (Exception e) {
+            System.out.println("exeltpon in sendMessage: " + e);
         }
     }
 }
