@@ -8,6 +8,7 @@ package Samples;
 
 import com.fazecast.jSerialComm.SerialPort;
 import org.json.JSONObject;
+import org.json.JSONException;
 import com.thingmagic.ECTConstants;
 import com.thingmagic.ElaraJSONParser;
 import com.thingmagic.ElaraTransportListener;
