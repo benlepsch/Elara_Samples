@@ -7,6 +7,7 @@ package Samples;
  */
 
 import com.fazecast.jSerialComm.SerialPort;
+import org.json.JSONObject;
 import com.thingmagic.ECTConstants;
 import com.thingmagic.ElaraJSONParser;
 import com.thingmagic.ElaraTransportListener;
@@ -27,7 +28,7 @@ public class StopRead {
             StringBuilder data = new StringBuilder();
             data.append(message);
 
-            if (!message.conatins("Passthrough")) {
+            if (!message.contains("Passthrough")) {
                 data.append("\n");
             }
 
@@ -168,7 +169,7 @@ public class StopRead {
                 return;
             }
 
-            Read msg = new Read();
+            StopRead msg = new StopRead();
             ElaraTransportListener elaraTransportListener = null;
             ElaraJSONParser ejsonp = new ElaraJSONParser();
 
