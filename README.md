@@ -1,16 +1,18 @@
-# Elara Sample Code for Gradle
+# Elara Sample Code for Gradle - Smaller Version
 
 Hi
 
 This is the same sample code that came with the Elara RFID reader, restructured to work with gradle instead of netbeans so that it compiles and runs from a linux terminal.
 
+Smaller version -- most of the source files for this to work were huge and unnecessary because it was intended to be run as a GUI, but on a raspberry pi I only needed a terminal interface. I deleted most of the background files and copied out the important bits to try and reduce size of the whole repo (8.6k line file > 200 line file).
+
 ## Installation
 
-To download the code, use the command `git clone https://github.com/benlepsch/elara_samples`. This downloads the windows/netbeans version, so then type `cd elara_samples` followed by `git checkout gradle` to switch to this branch. Also ensure that you have java installed: This runs on OpenJDK version 11.0.11 (check with the `java -version` command), and isn't tested with any newer versions. (To install java, use the command `apt-get install openjdk-11-jdk`)
+To download the code, use the command `git clone https://github.com/benlepsch/elara_samples`. This downloads the windows/netbeans version, so then type `cd elara_samples` followed by `git checkout bones` to switch to this branch. Also ensure that you have java installed: This runs on OpenJDK version 11.0.11 (check with the `java -version` command), and isn't tested with any newer versions. (To install java, use the command `apt-get install openjdk-11-jdk`)
 
 ### Required Packages
 
-All of the .jar files needed are already in the git repo's `libs/` folder, minus the JavaFX files. JavaFX can be installed on linux with the command `apt-get install javafx`. On the raspberry pi i'm using, this installed the javafx files to `/usr/share/java/`. If your JavaFX installs somewhere different, change the `dirs` line in `app/build.gradle` to point to the correct JavaFX folder.
+All of the .jar files needed are already in the git repo's `libs/` folder, ~~minus the JavaFX files.~~ Including the JFX files! No extra installation necessary, every dependency is included.
 
 ## Running the Program
 
