@@ -47,8 +47,7 @@ public class StopRead {
             if (!(message.contains("ActivateUpdate") || message.contains("EndUpdate") || message.contains("Passthrough"))) {
                 response = receiveCMDMessage(message, in, etl);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
         }
 
@@ -76,8 +75,7 @@ public class StopRead {
             if (hasElaraListener) {
                 etl.message(false, result);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
         }
 
@@ -138,12 +136,25 @@ public class StopRead {
                     etl.message(false, result);
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
         }
 
         return result;
+    }
+
+    // check if string is a valid json object
+    private boolean isValidJSON(String toTestStr) {
+        if (toTestStr == null) {
+            return false;
+        } else {
+            try {
+                new JSONObject(toTestStr);
+            } catch (JSONException ex) {
+                return false;
+            }
+            return true;
+        }
     }
 
     public static void main(String[] args) {
@@ -177,8 +188,7 @@ public class StopRead {
             System.out.println("Command: " + stop);
             String response = (String) msg.sendMessage(reader, stop, elaraTransportListener);
             System.out.println("Response: " + response); 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
         }
     }
