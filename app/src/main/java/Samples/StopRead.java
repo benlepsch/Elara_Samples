@@ -11,17 +11,14 @@ import org.json.JSONObject;
 import org.json.JSONException;
 import com.thingmagic.ECTConstants;
 import com.thingmagic.ElaraJSONParser;
-import com.thingmagic.ElaraTransportListener;
 import java.io.InputStream;
 import java.io.OutputStream;
 
 public class StopRead {
-    private boolean hasElaraListener = false;
-
     public static SerialPort reader;
 
     // send JSON message to the reader
-    public String sendMessage(SerialPort sp, String message, ElaraTransportListener etl) {
+    public String sendMessage(SerialPort sp, String message) {
         String response = null;
         try {
             InputStream in = sp.getInputStream();
@@ -33,10 +30,6 @@ public class StopRead {
                 data.append("\n");
             }
 
-            if (hasElaraListener) {
-                etl.message(true, message);
-            }
-
             if (message.contains("GetInfo")) {
                 while (in.available() > 0) {
                     in.read();
@@ -46,7 +39,7 @@ public class StopRead {
             out.write(data.toString().getBytes());
 
             if (!(message.contains("ActivateUpdate") || message.contains("EndUpdate") || message.contains("Passthrough"))) {
-                response = receiveCMDMessage(message, in, etl);
+                response = receiveCMDMessage(message, in);
             }
         } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
@@ -56,7 +49,7 @@ public class StopRead {
     }
 
     // receive tag reports from reader
-    public String receiveMessage(InputStream in, ElaraTransportListener etl) {
+    public String receiveMessage(InputStream in) {
         String result = null;
 
         try {
@@ -73,9 +66,6 @@ public class StopRead {
             }
 
             result = new String(readBuffer);
-            if (hasElaraListener) {
-                etl.message(false, result);
-            }
         } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
         }
@@ -84,7 +74,7 @@ public class StopRead {
     }
 
     // receive cmd feedback from reader
-    public String receiveCMDMessage(String message, InputStream in, ElaraTransportListener etl) {
+    public String receiveCMDMessage(String message, InputStream in) {
         String result = null;
         
         try {
@@ -132,10 +122,6 @@ public class StopRead {
                 }
 
                 sbin.delete(0, sbin.length());
-
-                if (hasElaraListener) {
-                    etl.message(false, result);
-                }
             }
         } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
@@ -182,12 +168,11 @@ public class StopRead {
             }
 
             StopRead msg = new StopRead();
-            ElaraTransportListener elaraTransportListener = null;
             ElaraJSONParser ejsonp = new ElaraJSONParser();
 
             String stop = ejsonp.formJSONCommand(ECTConstants.STOP_RZ);
             System.out.println("Command: " + stop);
-            String response = (String) msg.sendMessage(reader, stop, elaraTransportListener);
+            String response = (String) msg.sendMessage(reader, stop);
             System.out.println("Response: " + response); 
         } catch (Exception e) {
             System.out.println("exeltpon in sendMessage: " + e);
