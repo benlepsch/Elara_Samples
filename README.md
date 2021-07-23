@@ -20,7 +20,7 @@ The java files that run the reader are stored in the folder `app/src/main/java/S
 
 ### Running code on the raspberry pi with custom reader command
 
-If you're running the code through the raspberry pi I set up, all you have to do is make sure you're in the `~/Elara_Samples/` folder and then type `reader <NameOfProgram>`. For example, running the `ConstantRead.java` file would use the command `reader ConstantRead`. Running `reader help` explains how to use the command in slightly more detail.
+If you're running the code through the raspberry pi I set up, all you have to do is type `reader <NameOfProgram>`. For example, running the `ConstantRead.java` file would use the command `reader ConstantRead`. If this is the first time running code since the pi has started up, it will take a minute to start a gradle daemon, but if it's not, the code should compile in run in ~30 seconds. After running whatever file you specified, the `reader` command will then run a second piece of code to turn off the ThingMagic reader. Running `reader help` explains how to use the command in slightly more detail.
 
 ### Setting up reader command on different linux machine
 
